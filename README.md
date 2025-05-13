@@ -1,4 +1,4 @@
-# Magic Scanner (WIP)
+# Magic Scanner 🔍🃏🧙‍♂️
 
 Node module for scanning mtg cards on the go on all js apps.
 
