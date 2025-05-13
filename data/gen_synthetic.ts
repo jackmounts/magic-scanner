@@ -1,6 +1,6 @@
 import fs from 'fs';
 import sharp from 'sharp';
-import { applyAffine, randomAffine, yolo_labels } from './utils';
+import { applyAffine, randomAffine, keras_labels } from './utils';
 import cliProgress from 'cli-progress';
 
 const startIdx = parseInt(process.argv[2] || '0', 10);
@@ -9,7 +9,6 @@ const workerId = process.argv[4] || '';
 
 const CARD_DIR = 'data/cards/';
 const BG_DIR = 'data/backgrounds/';
-const LABEL_DIR = 'data/yolo-labels/';
 const OUT_DIR = 'data/synthetic/';
 const LABELS: {
   file: string;
@@ -21,7 +20,6 @@ async function gen() {
   try {
     console.log(`[${workerId}] Starting synthetic data generation...`);
     await fs.promises.mkdir(OUT_DIR, { recursive: true });
-    await fs.promises.mkdir(LABEL_DIR, { recursive: true });
 
     const cards = fs.readdirSync(CARD_DIR);
     const bgs = fs.readdirSync(BG_DIR);
@@ -89,16 +87,19 @@ async function gen() {
         });
 
         try {
+          fs.appendFileSync(
+            'data/annotations.csv',
+            keras_labels(`img_${i}.png`, points)
+          );
+        } catch {
+          console.error(`[${workerId}] Error writing CSV labels`);
+        }
+
+        try {
           fs.writeFileSync(`${OUT_DIR}/img_${i}.png`, compositeBuf);
         } catch (err) {
           console.error(`[${workerId}] Error writing image img_${i}.png:`, err);
         }
-        try {
-          fs.writeFileSync(`${LABEL_DIR}/img_${i}.txt`, yolo_labels(points));
-        } catch (err) {
-          console.error(`[${workerId}] Error writing label img_${i}.txt:`, err);
-        }
-
         progressBar.update(i - startIdx + 1);
       } catch (imgErr) {
         console.error(`[${workerId}] Error processing image ${i}:`, imgErr);

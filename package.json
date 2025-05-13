@@ -33,6 +33,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@tensorflow/tfjs": "^4.22.0",
     "@tensorflow/tfjs-node": "^4.22.0",
     "cli-progress": "^3.12.0",
     "sharp": "^0.34.1"

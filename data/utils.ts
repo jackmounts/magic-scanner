@@ -50,19 +50,24 @@ export function applyAffine(
   };
 }
 
-export function yolo_labels(points: { x: number; y: number }[]): string {
+export function keras_labels(
+  imgName: string,
+  points: { x: number; y: number }[]
+): string {
   const xs = points.map((p) => p.x);
   const ys = points.map((p) => p.y);
-  const minX = Math.min(...xs);
-  const maxX = Math.max(...xs);
-  const minY = Math.min(...ys);
-  const maxY = Math.max(...ys);
+  const xMin = Math.min(...xs);
+  const yMin = Math.min(...ys);
+  const xMax = Math.max(...xs);
+  const yMax = Math.max(...ys);
+  const boxW = xMax - xMin;
+  const boxH = yMax - yMin;
+  const xC = xMin + boxW / 2;
+  const yC = yMin + boxH / 2;
+  const xMinNorm = xMin / 1920;
+  const yMinNorm = yMin / 1080;
+  const wNorm = boxW / 1920;
+  const hNorm = boxH / 1080;
 
-  const x_center = ((minX + maxX) / 2).toFixed(6);
-  const y_center = ((minY + maxY) / 2).toFixed(6);
-  const width = (maxX - minX).toFixed(6);
-  const height = (maxY - minY).toFixed(6);
-
-  // Class id 0 for every card
-  return `0 ${x_center} ${y_center} ${width} ${height}`;
+  return `${imgName},${xMinNorm},${yMinNorm},${wNorm},${hNorm}\n`;
 }

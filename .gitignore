@@ -50,7 +50,9 @@ data/json-labels/
 data/backgrounds/
 data/bulk*
 data/labels*
+data/annotations.csv
 
 # Python
 __pycache__/
-.venv/*
+.venv/
+cache/

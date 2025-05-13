@@ -4,11 +4,10 @@ import fs from 'fs';
 const totalImages = 5000;
 const numWorkers = 4;
 const imagesPerWorker = Math.ceil(totalImages / numWorkers);
+const CSV_PATH = 'data/annotations.csv';
 
 (async () => {
-  if (!fs.existsSync('data/yolo-labels/')) {
-    await fs.promises.mkdir('data/yolo-labels/', { recursive: true });
-  }
+  fs.writeFileSync(CSV_PATH, 'filename,x_min,y_min,width,height\n');
 
   for (let i = 0; i < numWorkers; i++) {
     const start = i * imagesPerWorker;
