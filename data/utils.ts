@@ -49,3 +49,20 @@ export function applyAffine(
     y: c * x + d * y + dy,
   };
 }
+
+export function yolo_labels(points: { x: number; y: number }[]): string {
+  const xs = points.map((p) => p.x);
+  const ys = points.map((p) => p.y);
+  const minX = Math.min(...xs);
+  const maxX = Math.max(...xs);
+  const minY = Math.min(...ys);
+  const maxY = Math.max(...ys);
+
+  const x_center = ((minX + maxX) / 2).toFixed(6);
+  const y_center = ((minY + maxY) / 2).toFixed(6);
+  const width = (maxX - minX).toFixed(6);
+  const height = (maxY - minY).toFixed(6);
+
+  // Class id 0 for every card
+  return `0 ${x_center} ${y_center} ${width} ${height}`;
+}

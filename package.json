@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "fetch-bulk": "ts-node data/fetch_bulk.ts",
-    "gen-syn": "ts-node data/gen_synthetic.ts",
-    "train": "ts-node training/train.ts && npx tensorflowjs_converter --input_format=tf_saved_model --quantization_bytes 1 tfjs_model tfjs_model_quantized",
+    "gen-syn": "ts-node data/run_synthetic.ts",
+    "group-labels": "ts-node data/group_labels.ts",
     "lint": "eslint src --ext .ts",
     "format": "prettier --write src"
   },
