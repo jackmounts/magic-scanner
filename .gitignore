@@ -50,3 +50,7 @@ data/json-labels/
 data/backgrounds/
 data/bulk*
 data/labels*
+
+# Python
+__pycache__/
+.venv/*
