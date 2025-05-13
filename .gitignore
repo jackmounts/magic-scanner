@@ -45,6 +45,7 @@ Thumbs.db
 # Project bulk
 data/cards/
 data/synthetic/
-data/labels/
+data/yolo-labels/
+data/json-labels/
 data/backgrounds/
 data/bulk*
