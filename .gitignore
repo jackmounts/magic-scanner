@@ -45,5 +45,6 @@ Thumbs.db
 # Project bulk
 data/cards/
 data/synthetic/
+data/labels/
 data/backgrounds/
 data/bulk*
