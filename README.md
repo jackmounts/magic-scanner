@@ -55,6 +55,7 @@ data/
 ```bash
 # Crete venv and activate it
 py -m venv .venv
+# (Unix uses ./.venv/scripts/activate)
 .\.venv\Scripts\Activate.ps1
 # Check if the venv version is correct (python --version)
 # if not remove venv and use command
