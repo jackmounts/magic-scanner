@@ -21,7 +21,7 @@ base = MobileNetV2(input_shape=(224,224,3), include_top=False, weights='imagenet
 base.trainable = False
 x = layers.GlobalAveragePooling2D()(base.output)
 x = layers.Dense(128, activation='relu')(x)
-out = layers.Dense(4, activation='sigmoid')(x)  # x_min,y_min,w,h normalizzati
+out = layers.Dense(4, activation='sigmoid')(x) 
 model = models.Model(inputs=base.input, outputs=out)
 model.compile(optimizer='adam', loss='mse')
 
