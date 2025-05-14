@@ -11,6 +11,8 @@ Create a Magic: The Gathering card scanner model to use into your web applicatio
 - [x] Create utils to generate dataset automatically
 - [x] Create training functions to generate a model with tensorflow
 - [x] Convert and use the model with tensorflowjs
+- [ ] Get card info with OCR
+- [ ] Create demo app
 - [ ] Learn something in the middle
 
 ## Project setup and get data to train the model
@@ -89,4 +91,19 @@ web_model/
 ├─ tfjs_detector/
 │  ├─ group1-shard1of1.bin # <--- actual model
 │  ├─ model.json
+```
+
+## Running the demo app
+
+```bash
+# Make sure you have installed all packages
+npm install
+
+# Then run the Vite project
+npm run dev
+
+# (Optional) If you want to host the webapp in your local network (maybe to see the app on the phone) use instead
+npm run dev-host
+
+# Have fun detecting cards
 ```
