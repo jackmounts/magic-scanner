@@ -43,10 +43,16 @@ const App = () => {
   }, []);
 
   return (
-    <>
-      <video ref={videoRef} style={{ display: 'none' }} />
-      <canvas ref={canvasRef} style={{ width: '100%' }} />
-    </>
+    <div className="h-screen w-screen relative">
+      <video
+        ref={videoRef}
+        className="size-full absolute z-10"
+        autoPlay
+        playsInline
+        muted
+      />
+      <canvas ref={canvasRef} className="size-full absolute z-20 bg-black" />
+    </div>
   );
 };
 
