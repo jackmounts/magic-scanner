@@ -102,7 +102,8 @@ npm install
 # Then run the Vite project
 npm run dev
 
-# (Optional) If you want to host the webapp in your local network (maybe to see the app on the phone) use instead
+# (Optional) If you want to host the webapp in your local network (maybe to see the app on the phone)
+# use instead
 npm run dev-host
 
 # Have fun detecting cards
