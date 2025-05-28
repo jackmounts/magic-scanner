@@ -2,7 +2,7 @@
 
 **DISCLAIMER 1**: I created this repo to learn something about the topic and to maybe use it in other MTG related projects (if it works)!  
 **DISCLAIMER 2**: You might find this repo too easy or too explicative but it is for personal research only. All comments are made from my experience making this repo!  
-**DISCLAIMER 3**: This repo is fan made and is permitted under the Wizards of the Coast Fan Content Policy. The literal and graphical information presented on this site about Magic: The Gathering, including card images and mana symbols, is copyright Wizards of the Coast, LLC. Scryfall is not produced by or endorsed by Wizards of the Coast.
+**DISCLAIMER 3**: This repo is fan made and is permitted under the Wizards of the Coast Fan Content Policy. 
 
 **What does it do?**  
 Create a Magic: The Gathering card scanner model to use into your web applications with [Tensorflow.js](https://www.tensorflow.org/js)!
